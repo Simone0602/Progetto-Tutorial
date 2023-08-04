@@ -1,9 +1,7 @@
 package com.example.tutorial.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 @Entity
 public class Comments {
@@ -13,6 +11,11 @@ public class Comments {
     private long id;
     private String comment;
     private long tutorial_id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "tutorial_id", nullable = false, foreignKey = @ForeignKey(name = "tutorial_id"))
+    @JsonIgnore
+    private Tutorial tutorial;
 
     public long getId() {
         return id;

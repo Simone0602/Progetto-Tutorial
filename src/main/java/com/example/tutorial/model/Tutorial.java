@@ -2,6 +2,9 @@ package com.example.tutorial.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="tutorials")
 public class Tutorial {
@@ -15,7 +18,8 @@ public class Tutorial {
     private String description;
     private boolean published;
 
-    //@OneToMany(mappedBy = "tutorial", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "tutorial", fetch = FetchType.LAZY)
+    List<Comments> comments = new ArrayList<>();
 
 
     public Tutorial() {
