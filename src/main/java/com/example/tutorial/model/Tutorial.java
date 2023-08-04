@@ -15,7 +15,7 @@ public class Tutorial {
     private String description;
     private boolean published;
 
-    @OneToMany(mappedBy = "tutorial", fetch = FetchType.LAZY)
+    //@OneToMany(mappedBy = "tutorial", fetch = FetchType.LAZY)
 
 
     public Tutorial() {
