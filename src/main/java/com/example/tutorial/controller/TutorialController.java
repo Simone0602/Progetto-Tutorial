@@ -34,12 +34,12 @@ public class TutorialController {
     }
 
     @DeleteMapping(path = "/tutorials/{id}")
-    public @ResponseBody String deleteById(@PathVariable(name = "id") long id){
+    public ResponseEntity<HttpStatus> deleteById(@PathVariable(name = "id") long id){
         if(tutorialRepository.existsById((int) id)) {
             tutorialRepository.deleteById((int) id);
-            return "Tutorial Eliminato";
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return "Tutorial non trovato";
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PutMapping(path = "/tutorial/up/{id}")
