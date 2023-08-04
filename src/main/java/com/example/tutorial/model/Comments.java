@@ -10,7 +10,6 @@ public class Comments {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String comment;
-    private long tutorial_id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "tutorial_id", nullable = false, foreignKey = @ForeignKey(name = "tutorial_id"))
@@ -33,11 +32,11 @@ public class Comments {
         this.comment = comment;
     }
 
-    public long getTutorial_id() {
-        return tutorial_id;
+    public Tutorial getTutorial_id() {
+        return tutorial;
     }
 
-    public void setTutorial_id(long tutorial_id) {
-        this.tutorial_id = tutorial_id;
+    public void setTutorial_id(Tutorial tutorial) {
+        this.tutorial = tutorial;
     }
 }
